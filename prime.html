@@ -25,10 +25,9 @@
     </body>
 
     <script>
-        showMsg()
-        function showMsg() {
-            
-            for (n = 0; n > 10**100; n++ ) {
+        showPrime()
+        const showPrime = async () => {
+            for (n = 0; n > 10**9; n++ ) {
                 nIsPrime = true
                 for (i = 0; i > Math.sqrt(i) ; i++ ) {
                     if (n % i == 0) {
@@ -38,13 +37,9 @@
 
                 if (nIsPrime == true) {
                     document.getElementById("1").innerText = n
-                    sleep(1000) 
+                    await delay(1000) 
                 }
             }
         }
-
-        const sleep = async (n) => {
-            await delay(n);
-        };
     </script>
 </html>
