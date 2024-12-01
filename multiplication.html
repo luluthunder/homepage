@@ -30,42 +30,30 @@
         </main>
         <script>
             const showPrompt = () => {
-
                 a = Math.floor(Math.random() * 12) + 1;
                 b = Math.floor(Math.random() * 12) + 1;
                 c = a*b
                 document.getElementById("prompt").innerText = `${a} x ${b} = ?`
 
-                answer[0] = {
-                    value: c,
-                    order: 0,
-                    correct: true
-                } 
-                answer[1] = {
-                    value: c - 1,
-                    order: 1,
-                    correct: false
-                } 
-                answer[2] = {
-                    value: c + 1,
-                    order: 2,
-                    correct: false
+                let answer = [ 
+                    { value: c, order: 0, correct: true },
+                    { value: c-1, order: 0, correct: false },
+                    { value: c+2, order: 0, correct: false },
+                    { value: c+3, order: 0, correct: false }
+                ]
+                answer = answer.sort(() => Math.random() - .5)
+
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById(`${i}`).innerText = answer[i].value
+                    document.getElementById(`${i}`).dataset.correct = answer[i].correct
                 }
-                answer[3] = {
-                    value: c + 2,
-                    order: 3,
-                    correct: false
-                }  
-                document.getElementById("0").value = `${answer[0].value}`
-                document.getElementById("1").text = `${answer[0].value}`
-                document.getElementById("2").innerText = answer[2].value
-                document.getElementById("3").innerText = answer[3].value
+            }
+            function check(input){
+                const isCorrect = document.getElementById(`${input}`).dataset.correct == "true"
+                alert(isCorrect? `Correct!` : `Try Again`)
             }
             showPrompt()
 
-            function check(input){
-                alert(answer[input])
-            }
         </script>
     </body>
 </html>
