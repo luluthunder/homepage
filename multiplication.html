@@ -36,10 +36,10 @@
                 document.getElementById("prompt").innerText = `${a} x ${b} = ?`
 
                 let answer = [ 
-                    { value: c, order: 0, correct: true },
-                    { value: c-1, order: 0, correct: false },
-                    { value: c+2, order: 0, correct: false },
-                    { value: c+3, order: 0, correct: false }
+                    { value: c, correct: true },
+                    { value: a*(b-1), correct: false },
+                    { value: a*(b+2), correct: false },
+                    { value: c+1, correct: false }
                 ]
                 answer = answer.sort(() => Math.random() - .5)
 
@@ -50,7 +50,15 @@
             }
             function check(input){
                 const isCorrect = document.getElementById(`${input}`).dataset.correct == "true"
-                alert(isCorrect? `Correct!` : `Try Again`)
+                if (isCorrect) {
+                    alert(`Correct!`)
+                    showPrompt()
+                }
+                else { 
+                    alert(`Try Again`)
+
+                }
+                  
             }
             showPrompt()
 
