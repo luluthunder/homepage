@@ -17,36 +17,29 @@
 
             <h1>Prime Numbers</h1>
             <br>
-            <div>
-                <div id="1"></div>
-            </div>
-
+            <div id="1"></div>
             <br><br>
             <a href="index.html">This is a link back to the homepage.</a>
         </main>
-
         <script>
-            showPrime()
+            const delay = (ms) => new Promise( (resolve) => setTimeout(resolve, ms))
             const showPrime = async () => {
                 document.getElementById("1").innerHTML = "running..."
-
-                for (let n = 2; n < 10**9; n++ ) {
+                for (let n = 2; n < 1000; n++ ) {
                     nIsPrime = true
-
                     for (let i = 2; i <= Math.sqrt(n) ; i++ ) {
                         if (n % i == 0) {
                             nIsPrime = false
                             break
                         }
                     }
-
                     if (nIsPrime) {
-                        document.getElementById("1").innerHTML = n
+                        document.getElementById("1").innerHTML = `${n}`
                         await delay(1000) 
                     }
                 }
             }
-            const delay = (ms) => new Promise( (resolve) => setTimeout(resolve, ms))
+            showPrime()
         </script>
 
     </body>
