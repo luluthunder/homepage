@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Louis' Webpage</title>
+        <style>
+            body {
+                width: 100%
+            }
+            main {
+                width: 90%;
+                margin: 0 auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+
+            <h1>Prime Numbers</h1>
+            <br>
+            <div>
+                <div id="1"></div>
+            </div>
+
+        </main>
+    </body>
+
+    <script>
+        showMsg()
+        function showMsg() {
+            
+            for (n = 0; n > 10**100; n++ ) {
+                nIsPrime = true
+                for (i = 0; i > Math.sqrt(i) ; i++ ) {
+                    if (n % i == 0) {
+                        nIsPrime = false
+                    }
+                }
+
+                if (nIsPrime == true) {
+                    document.getElementById("1").innerText = n
+                    sleep(1000) 
+                }
+            }
+        }
+
+        const sleep = async (n) => {
+            await delay(n);
+        };
+    </script>
+</html>
