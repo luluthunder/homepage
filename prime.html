@@ -24,26 +24,28 @@
             <br><br>
             <a href="index.html">This is a link back to the homepage.</a>
         </main>
-    </body>
 
-    <script>
-        showPrime()
-        const showPrime = async () => {
-            for (n = 2; n < 10**9; n++ ) {
-                nIsPrime = true
-                for (i = 2; i <= Math.sqrt(n) ; i++ ) {
-                    if (n % i == 0) {
-                        nIsPrime = false
-                        break
+        <script>
+            showPrime()
+            const showPrime = async () => {
+                for (let n = 2; n < 10**9; n++ ) {
+                    nIsPrime = true
+
+                    for (let i = 2; i <= Math.sqrt(n) ; i++ ) {
+                        if (n % i == 0) {
+                            nIsPrime = false
+                            break
+                        }
+                    }
+
+                    if (nIsPrime) {
+                        document.getElementById("1").innerText = n
+                        await delay(1000) 
                     }
                 }
-
-                if (nIsPrime == true) {
-                    document.getElementById("1").innerText = n
-                    await delay(1000) 
-                }
             }
-        }
-        const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-    </script>
+            const delay = (ms) => new Promise( (resolve) => setTimeout(resolve, ms))
+        </script>
+
+    </body>
 </html>
