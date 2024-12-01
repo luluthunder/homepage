@@ -19,10 +19,10 @@
             <br>
             <h2 id="prompt"></h2>
             <div>
-                <button id="1"></button>
-                <button id="2"></button>
-                <button id="3"></button>
-                <button id="4"></button>
+                <button id="0" onclick="check(0)"></button>
+                <button id="1" onclick="check(1)"></button>
+                <button id="2" onclick="check(2)"></button>
+                <button id="3" onclick="check(3)"></button>
             </div>
 
             <br><br>
@@ -59,10 +59,14 @@
                 order: 3,
                 correct: false
             }  
-            document.getElementById("1").innerText = answer[0].value
-            document.getElementById("2").innerText = answer[1].value
-            document.getElementById("3").innerText = answer[2].value
-            document.getElementById("4").innerText = answer[3].value
+            document.getElementById("0").innerText = answer[0].value
+            document.getElementById("1").innerText = answer[1].value
+            document.getElementById("2").innerText = answer[2].value
+            document.getElementById("3").innerText = answer[3].value
+        }
+
+        function check(input){
+            alert(answer[input])
         }
     </script>
 </html>
