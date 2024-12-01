@@ -25,7 +25,7 @@
             const delay = (ms) => new Promise( (resolve) => setTimeout(resolve, ms))
             const showPrime = async () => {
                 document.getElementById("1").innerHTML = "running..."
-                for (let n = 2; n < 1000; n++ ) {
+                for (let n = 2; n < 1000000; n++ ) {
                     nIsPrime = true
                     for (let i = 2; i <= Math.sqrt(n) ; i++ ) {
                         if (n % i == 0) {
