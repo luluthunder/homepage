@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Louis' Webpage</title>
+        <style>
+            body {
+                width: 100%
+            }
+            main {
+                width: 90%;
+                margin: 0 auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+
+            <h1>Division Quiz</h1>
+            <br>
+            <h2 id="prompt"></h2>
+            <div>
+                <button id="0" onclick="check(0)"></button>
+                <button id="1" onclick="check(1)"></button>
+                <button id="2" onclick="check(2)"></button>
+                <button id="3" onclick="check(3)"></button>
+            </div>
+
+            <br><br>
+            <a href="index.html">back to the homepage</a>
+        </main>
+        <script>
+            const showPrompt = () => {
+                a = Math.floor(Math.random() * 12) + 2;
+                b = Math.floor(Math.random() * 12) + 2;
+                c = a*b
+
+                document.getElementById("prompt").innerText = `${c} / ${b} = ?`
+
+                let answer = [ 
+                    { value: a, correct: true },
+                    { value: Math.floor( c / (b+1) ), correct: false },
+                    { value: Math.floor( a+2 ), correct: false },
+                    { value: Math.floor( a+1 ), correct: false }
+                ]
+                answer = answer.sort(() => Math.random() - .5)
+
+                for (let i = 0; i < 4; i++) {
+                    document.getElementById(`${i}`).innerText = answer[i].value
+                    document.getElementById(`${i}`).dataset.correct = answer[i].correct
+                }
+            }
+            function check(input){
+                const isCorrect = document.getElementById(`${input}`).dataset.correct == "true"
+                if (isCorrect) {
+                    alert(`Correct!`)
+                    showPrompt()
+                }
+                else { 
+                    alert(`Try Again`)
+
+                }
+                  
+            }
+            showPrompt()
+
+        </script>
+    </body>
+</html>
